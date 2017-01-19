@@ -58,7 +58,7 @@ class DeliveryCell: UICollectionViewCell {
         addConstraintsWithFormat(format: "H:|-5-[v0]-20-[v1(250)]-5-|", views: thumbnailImageView, titleLabel)
         
         //vertical constraints
-        addConstraintsWithFormat(format: "V:|-5-[v0]-5-[v1(1)]|", views: thumbnailImageView, separatorView)
+        addConstraintsWithFormat(format: "V:|-5-[v0]-4-[v1(1)]|", views: thumbnailImageView, separatorView)
         
         addConstraintsWithFormat(format: "V:|-5-[v0(60)]", views: titleLabel)
         

@@ -13,34 +13,27 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupMenuBar()
-        //setupNav()
-//        let statusBar = UIView()
-//        statusBar.backgroundColor = UIColor.yellow
-//        statusBar.translatesAutoresizingMaskIntoConstraints = false
-//        view.addSubview(statusBar)
-//        navigationController?.view.addConstraintsWithFormat(format: "H:|[v0]|", views: statusBar)
-//        navigationController?.view.addConstraintsWithFormat(format: "V:|[v0(200)]", views: statusBar)
+        
         
         navigationItem.title = "Home"
+        navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.tintColor = UIColor.white
-        navigationController?.navigationBar.barTintColor = UIColor.rgb(red: 32, green: 32, blue: 230)
+        
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
+        titleLabel.text = "Home"
+        titleLabel.textColor = UIColor.white
+        titleLabel.font = UIFont.systemFont(ofSize: 20)
+        navigationItem.titleView = titleLabel
+        
         
         collectionView?.backgroundColor = UIColor.white
         collectionView?.register(DeliveryCell.self, forCellWithReuseIdentifier: "cellId")
        
         
         
-
+        setupMenuBar()
     }
-    
-//    let statusBar: UIView = {
-//        let view = UIView()
-//        view.backgroundColor = UIColor.yellow
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        return view
-//    }()
-    
+        
     
     let menuBar: MenuBar = {
         let mb = MenuBar()

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseCell:UICollectionViewCell {
+class BaseCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -26,15 +26,30 @@ class BaseCell:UICollectionViewCell {
 
 
 class DeliveryCell: BaseCell {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
+    
+    var delivery: Delivery? {
+        didSet {
+            titleLabel.text = delivery?.title
+            priceLabel.text = delivery?.price
+            
+            setupThumbnailImage()
+            
+        }
     }
     
-    let thumbnailImageView: UIImageView = {
-        let imageView = UIImageView()
+
+    
+    func setupThumbnailImage() {
+        if let requestImageViewUrl = delivery?.requestImageView {
+            thumbnailImageView.loadImageUsingUrlString(urlString: requestImageViewUrl)
+        }
+    }
+    
+    
+    let thumbnailImageView: CustumImageView = {
+        let imageView = CustumImageView()
         imageView.backgroundColor = UIColor.blue
-        imageView.image = UIImage(named: "myImage")
+        //imageView.image = UIImage(named: "myImage")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -49,7 +64,7 @@ class DeliveryCell: BaseCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = UIColor.purple
-        label.text = "至急！　お水ください！"
+        //label.text = "至急！　お水ください！"
         return label
     }()
     
@@ -85,10 +100,7 @@ class DeliveryCell: BaseCell {
         
         
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+
 }
 
     

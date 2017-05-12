@@ -11,12 +11,14 @@ import UIKit
 class BaseCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setupViews()
     }
     
     func setupViews() {
         
     }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -27,10 +29,15 @@ class BaseCell: UICollectionViewCell {
 
 class DeliveryCell: BaseCell {
     
+    var homeController: HomeController?
+    
     var delivery: Delivery? {
         didSet {
             titleLabel.text = delivery?.title
-            priceLabel.text = delivery?.price
+            if let deliveryPrice = delivery?.price {
+                priceLabel.text = "¥  \(deliveryPrice)"
+            }
+            //priceLabel.text =  delivery?.price
             
             setupThumbnailImage()
             
@@ -48,7 +55,7 @@ class DeliveryCell: BaseCell {
     
     let thumbnailImageView: CustumImageView = {
         let imageView = CustumImageView()
-        imageView.backgroundColor = UIColor.blue
+        imageView.backgroundColor = UIColor.white
         //imageView.image = UIImage(named: "myImage")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -63,14 +70,14 @@ class DeliveryCell: BaseCell {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = UIColor.purple
+        //label.backgroundColor = UIColor.purple
         //label.text = "至急！　お水ください！"
         return label
     }()
     
     let priceLabel: UILabel = {
         let price = UILabel()
-        price.backgroundColor = UIColor.green
+        //price.backgroundColor = UIColor.green
         price.text = "¥500"
         price.translatesAutoresizingMaskIntoConstraints = false
         return price

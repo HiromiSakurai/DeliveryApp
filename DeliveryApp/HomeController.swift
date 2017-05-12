@@ -29,6 +29,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     let deliveringCellId = "deliveringCellId"
     let deliveredCellId = "deliveredCellId"
     
+    
+    
     let floatButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("注文", for: UIControlState())
@@ -170,13 +172,21 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             return collectionView.dequeueReusableCell(withReuseIdentifier: deliveredCellId, for: indexPath)
         }
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-       
+        let cell: FeedCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! FeedCell
+        cell.homeController = self
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height - 50)
+    }
+    
+    func showDetailForRequest(delivery: Delivery) {
+        let requestDetailController = RequestDetailController()
+        requestDetailController.delivery = delivery
+        navigationController?.pushViewController(requestDetailController, animated: true)
+        print("func show detail")
     }
     
     
@@ -189,4 +199,6 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
 
     
 }
+
+
 

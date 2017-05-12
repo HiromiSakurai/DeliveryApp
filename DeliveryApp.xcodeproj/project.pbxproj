@@ -11,6 +11,7 @@
 		8F1D2B551E30242B00B3D79D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1D2B541E30242A00B3D79D /* Extensions.swift */; };
 		8F1D2B581E3024D100B3D79D /* DeliveryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1D2B571E3024D100B3D79D /* DeliveryCell.swift */; };
 		8F1D2B5A1E302A7200B3D79D /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1D2B591E302A7200B3D79D /* MenuBar.swift */; };
+		8F32A9401E5C281600938BFF /* RequestDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F32A93F1E5C281600938BFF /* RequestDetailController.swift */; };
 		8F437AB51E32FF3600F1837D /* settingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F437AB41E32FF3600F1837D /* settingsLauncher.swift */; };
 		8F437AB71E3314C800F1837D /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F437AB61E3314C800F1837D /* SettingCell.swift */; };
 		8F437ABA1E34415700F1837D /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F437AB91E34415700F1837D /* ApiService.swift */; };
@@ -37,6 +38,7 @@
 		8F1D2B541E30242A00B3D79D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8F1D2B571E3024D100B3D79D /* DeliveryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryCell.swift; sourceTree = "<group>"; };
 		8F1D2B591E302A7200B3D79D /* MenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		8F32A93F1E5C281600938BFF /* RequestDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDetailController.swift; sourceTree = "<group>"; };
 		8F437AB41E32FF3600F1837D /* settingsLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingsLauncher.swift; sourceTree = "<group>"; };
 		8F437AB61E3314C800F1837D /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		8F437AB91E34415700F1837D /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
@@ -82,11 +84,11 @@
 			isa = PBXGroup;
 			children = (
 				8F1D2B571E3024D100B3D79D /* DeliveryCell.swift */,
-				8F1D2B591E302A7200B3D79D /* MenuBar.swift */,
-				8F437AB61E3314C800F1837D /* SettingCell.swift */,
 				8F437ABB1E35780400F1837D /* FeedCell.swift */,
 				8F437ABD1E362F8300F1837D /* DeliveringCell.swift */,
 				8F437ABF1E36331000F1837D /* DeliveredCell.swift */,
+				8F437AB61E3314C800F1837D /* SettingCell.swift */,
+				8F1D2B591E302A7200B3D79D /* MenuBar.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -135,7 +137,6 @@
 				8F1D2B561E3024B400B3D79D /* View */,
 				8F1D2B531E3023F700B3D79D /* Helpers */,
 				8FF063E21E2A96800091D72A /* Controller */,
-				8FF063E01E2A966D0091D72A /* Model */,
 				8FC569051E2A9036008EEB61 /* AppDelegate.swift */,
 				8FC569091E2A9036008EEB61 /* Main.storyboard */,
 				8FC5690C1E2A9036008EEB61 /* Assets.xcassets */,
@@ -145,20 +146,14 @@
 			path = DeliveryApp;
 			sourceTree = "<group>";
 		};
-		8FF063E01E2A966D0091D72A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		8FF063E21E2A96800091D72A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				8F1D2B511E2E29A500B3D79D /* HomeController.swift */,
+				8F32A93F1E5C281600938BFF /* RequestDetailController.swift */,
+				8F7716181E3A131E008F5D04 /* NewRequestController.swift */,
 				8F437AB41E32FF3600F1837D /* settingsLauncher.swift */,
 				8F7716161E372F60008F5D04 /* LoginController.swift */,
-				8F7716181E3A131E008F5D04 /* NewRequestController.swift */,
 				8F77161A1E3D44A1008F5D04 /* NewRequestController+handlers.swift */,
 			);
 			name = Controller;
@@ -313,6 +308,7 @@
 				8F7716171E372F60008F5D04 /* LoginController.swift in Sources */,
 				8F7716191E3A131E008F5D04 /* NewRequestController.swift in Sources */,
 				8F7716211E3D73FB008F5D04 /* User.swift in Sources */,
+				8F32A9401E5C281600938BFF /* RequestDetailController.swift in Sources */,
 				8F437ABE1E362F8300F1837D /* DeliveringCell.swift in Sources */,
 				8FB11AF11E31D16C0099E78D /* Delivery.swift in Sources */,
 				8F437AB71E3314C800F1837D /* SettingCell.swift in Sources */,

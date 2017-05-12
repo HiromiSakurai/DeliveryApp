@@ -20,8 +20,11 @@ class FeedCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
         return cv
     }()
     
+    
     var deliveries = [Delivery]()
     
+    //var homeController = HomeController()
+    weak var homeController: HomeController?
     let cellId = "cellId"
     
     func fetchDeliveries() {
@@ -34,8 +37,8 @@ class FeedCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
                 delivery.setValuesForKeys(dictionary)
                 delivery.title = dictionary["title"] as? String
                 self.deliveries.append(delivery)
-                print(delivery)
-                print(self.deliveries)
+                //print(delivery)
+                //print(self.deliveries)
                 
                 DispatchQueue.main.async(execute: { 
                     self.collectionView.reloadData()
@@ -71,6 +74,14 @@ class FeedCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
         
         collectionView.register(DeliveryCell.self, forCellWithReuseIdentifier: cellId)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //print("request selected \(indexPath.item)")
+        
+        let request = deliveries[indexPath.item]
+        homeController?.showDetailForRequest(delivery: request)
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         

@@ -20,6 +20,12 @@ class NewRequestController: FormViewController {
         view.backgroundColor = UIColor.lightGray
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(handleCancel))
         navigationItem.title = "注文情報"
+        navigationController?.navigationBar.isTranslucent = false
+        let title = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 128, height: view.frame.height))
+        title.textAlignment = .center
+        title.text = "注文入力"
+        title.textColor = UIColor.white
+        navigationItem.titleView = title
         //navigationController?.navigationBar.barTintColor = UIColor.rgb(red: 230, green: 32, blue: 31)
         UINavigationBar.appearance().backgroundColor = UIColor.rgb(red: 230, green: 32, blue: 31)
         navigationController?.navigationBar.tintColor = UIColor.white
@@ -47,6 +53,7 @@ class NewRequestController: FormViewController {
             
         +++ Section("金額")
             <<< IntRow("intRow"){
+                $0.title = "¥"
                 $0.placeholder = "金額入力"
             }
             
@@ -91,7 +98,7 @@ class NewRequestController: FormViewController {
                             formatter.dateFormat = "yyyy-MM-dd HH:mm"
                             let stringDate: String = formatter.string(from: dateTimeRowValue!)
                             print(stringDate)
-                            let intToString = String(describing: intRowValue)
+                            let intToString: String = (intRowValue?.description)!
                     
                             if let requestImageUrl = metadata?.downloadURL()?.absoluteString {
                                 let ref = FIRDatabase.database().reference().child("requests")
@@ -121,6 +128,11 @@ class NewRequestController: FormViewController {
 //        setupContainerView()
 //        setupConfirmButton()
     }
+    
+    func handleCancel() {
+        dismiss(animated: true, completion: nil)
+    }
+
     
 //    func commitButtonTapped (){
 //        self.view.endEditing(true)
@@ -251,10 +263,7 @@ class NewRequestController: FormViewController {
 //        confirmButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
 //    }
 //    
-    func handleCancel() {
-        dismiss(animated: true, completion: nil)
-    }
-
+   
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

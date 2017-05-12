@@ -15,8 +15,8 @@ class Delivery: NSObject {
     var explanation: String?
     var price: String?
     var requestImageView: String?
-    var timestamp: NSNumber?
-    var timeLimit: NSNumber?
+    var timestamp: String?
+    var timeLimit: String?
     var fromId: String?
     //var thumbnailImageName: String?
     
